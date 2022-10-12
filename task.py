@@ -10,7 +10,7 @@ paged_news={}
 time.sleep(15)
 soup = BeautifulSoup(content)
 all_news=soup.find('div',attrs={'class' : 'row row-search-news-list'})
-for news in all_news.find_all_next('div', attrs={'class': "col-xs-12 col-md-6 col-lg-3"}):
+for news in all_news.find_all('div', attrs={'class': "col-xs-12 col-md-6 col-lg-3"}):
     image_url = news.find("img")["src"]
     printed_news = {"title": news.text, "image_url": image_url}
     fetch_news.append(printed_news)
